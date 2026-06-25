@@ -1,0 +1,38 @@
+[
+ {
+  "year": "2021",
+  "prog": "VEKOP",
+  "title": "Versenyképes Közép-Magyarország Operatív Program",
+  "text": "WENZEL LH 87 3D koordináta-mérőgép. Méréstartomány X=800, Y=1500, Z=700 mm; CNC vezérlésű, modelltérben programozható. Pontosság a prémium szegmensben: E0, MPE = 0,0015 + L/350 mm, 0,0001 mm felbontású RENISHAW mérőlécekkel. A RENISHAW PH10M PLUS mérőfej „5” tengelyes mérésre alkalmas — a munkadarab egy felfogásból körbemérhető."
+ },
+ {
+  "year": "2021",
+  "prog": "Pest megye",
+  "title": "Pest megye Területfejlesztési Koncepciója 2014–2020",
+  "text": "DMG MORI CTX Beta 1250 TC eszterga-maró-köszörű központ. Egy felfogásban mar, esztergál és köszörül — nő a pontosság és a termelékenység. Támogató: Pénzügyminisztérium."
+ },
+ {
+  "year": "2017",
+  "prog": "GINOP",
+  "title": "Gazdaságfejlesztési és Innovációs Operatív Program",
+  "text": "AVEMAX V-250-SP egyetemes marógép, PALMARY GU42x60S palástköszörű és ECO LASER 2600 lézerhegesztőgép. Feloldják a marási és köszörülési kapacitáskorlátot; a lézerhegesztő házon belüli szerszámjavítást tesz lehetővé."
+ },
+ {
+  "year": "2016",
+  "prog": "VEKOP",
+  "title": "Versenyképes Közép-Magyarország Operatív Program",
+  "text": "EmR-1200D 3 tengelyes CNC megmunkálóközpont (1200 × 600 mm-ig) és EMCO FB-600MC univerzális CNC szerszámmarógép — szimultán 3 tengelyes marás."
+ },
+ {
+  "year": "2015",
+  "prog": "GINOP",
+  "title": "Gazdaságfejlesztési és Innovációs Operatív Program",
+  "text": "SODICK VZ300L huzalszikraforgácsoló — fejlett generátor és nagyfelbontású mérőlécek, kaliber- és idomszergyártás."
+ },
+ {
+  "year": "2014",
+  "prog": "LEADER",
+  "title": "LEADER Program",
+  "text": "TOS SN 32/1000 univerzális csúcseszterga, EX4060A startlyukfúró és Baoli CPQD15-M targonca; az arculat és a weboldal is megújult."
+ }
+]
