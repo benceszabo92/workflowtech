@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    # A kész weboldal a build/ mappában van (python3 build.py generálja).
+    # Ezt a cPanel a public_html-be másolja minden deploynál.
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp -R build/. "$DEPLOYPATH"

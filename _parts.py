@@ -61,8 +61,9 @@ NAVLINKS = [('workflow-pro','Workflow Pro'),('gyartas','Gyártás'),('geppark','
             ('minoseg','Minőség'),('referenciak','Referenciák'),('rolunk','Rólunk')]
 
 def nav(active):
+    def _acls(r): return ' class="active"' if r==active else ''
     links=''.join(
-        f'<a href="{FILEOF[r]}"{" class=\"active\"" if r==active else ""}>{H.escape(l)}</a>'
+        f'<a href="{FILEOF[r]}"{_acls(r)}>{H.escape(l)}</a>'
         for r,l in NAVLINKS)
     return f'''<nav class="top"><div class="in"><a href="index.html" aria-label="Workflow Tech">{logo()}</a>
 <div class="links" id="navlinks">{links}</div>
