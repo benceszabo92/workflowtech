@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Rsync build/ → cPanel public_html (overlay, nem töröl)
+      - name: Deploy build/ → cPanel public_html (SFTP, overlay, nem töröl)
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
@@ -44,18 +44,13 @@ jobs:
               echo "::error::Hiányzó secret: $v — állítsd be a repo Settings → Secrets alatt."; exit 1
             fi
           done
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          SSHOPTS="-i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
-          echo "SSH auth teszt → ${SSH_USER}@${SSH_HOST}:${SSH_PORT}"
-          ssh $SSHOPTS "${SSH_USER}@${SSH_HOST}" 'echo "OK: $(hostname)"' || {
-            echo "::error::SSH auth sikertelen — ellenőrizd: a github-deploy kulcs Authorize-olva van? nincs rajta passphrase? jó a host/port/user?"; exit 1; }
-          echo "Deploy ${GITHUB_SHA::7} → ${DOCROOT}"
-          # -r rekurzív, -l szimlinkek, -z tömörítés; perm/owner NEM erőltetve (shared hostingon korlátozott)
-          rsync -rlvz --no-perms --no-owner --no-group --omit-dir-times \
-            -e "ssh $SSHOPTS" \
-            build/ "${SSH_USER}@${SSH_HOST}:${DOCROOT}"
+          echo "Deploy ${GITHUB_SHA::7} → ${SSH_USER}@${SSH_HOST}:${DOCROOT} (SFTP)"
+          # SFTP-vel (shell nem kell). mirror -R = feltöltés; --delete NINCS → overlay, nem töröl.
+          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes'; set net:max-retries 2; set net:timeout 25; set sftp:auto-confirm yes; open sftp://${SSH_USER}@${SSH_HOST}; mirror -R --verbose --no-perms --parallel=3 build/ ${DOCROOT}; bye"
 
       - name: Cloudflare cache purge
         env:
