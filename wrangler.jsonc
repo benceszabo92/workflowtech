@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers – statikus oldal (assets-only, nincs Worker-szkript).
+  // A kész build/ mappa tartalmát szolgálja ki a workflowtech.hu.
+  // Deploy: `npx wrangler deploy` (a Cloudflare Workers Build futtatja main-push után).
+  "name": "workflowtech",
+  "compatibility_date": "2026-06-27",
+  "assets": {
+    "directory": "./build"
+  }
+}
