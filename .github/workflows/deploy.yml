@@ -1,14 +1,14 @@
 name: Deploy to production (cPanel)
 
 # main-re kerülő commit (merge is) → a build/ feltöltése a dotroll cPanel public_html-be
-# rsync-kel (overlay, NEM töröl), majd Cloudflare cache purge.
+# FTPS-sel (overlay, NEM töröl), majd Cloudflare cache purge.
+# (FTPS, mert a fiókon nincs SSH shell/SFTP — az rsync/sftp nem megy.)
 #
 # Egyszeri beállítás — GitHub repo secrets (Settings → Secrets and variables → Actions):
-#   SSH_HOST          a cPanel/dotroll SSH host (pl. s12.dotroll.com vagy 185.33.54.7)
-#   SSH_PORT          SSH port (cPanel-en gyakran 22)
-#   SSH_USER          cPanel felhasználó (egrxtn)
-#   SSH_PRIVATE_KEY   a deploy privát kulcs (a hozzá tartozó publikus kulcs cPanel SSH Access-ben engedélyezve)
-#   CPANEL_DOCROOT    cél mappa, záró perjellel (/home/egrxtn/public_html/)
+#   FTP_HOST          FTP host (185.33.54.7)
+#   FTP_USER          FTP felhasználó (cPanel fő fiók: egrxtn, VAGY egy dedikált FTP-fiók user@workflowtech.hu)
+#   FTP_PASS          az FTP-fiók jelszava (érzékeny!)
+#   CPANEL_DOCROOT    cél mappa a login-könyvtárhoz képest (fő fiók: public_html/ ; public_html-re kötött FTP-fióknál: .)
 #   CF_API_TOKEN      Cloudflare API token (Zone → Cache Purge jog a workflowtech.hu zónára) — opcionális
 #   CF_ZONE_ID        a workflowtech.hu Cloudflare Zone ID-ja — opcionális
 # Részletek: .github/DEPLOY_SETUP.md
@@ -30,27 +30,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy build/ → cPanel public_html (SFTP, overlay, nem töröl)
+      - name: Deploy build/ → cPanel public_html (FTPS, overlay, nem töröl)
         env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
           DOCROOT: ${{ secrets.CPANEL_DOCROOT }}
         run: |
           set -euo pipefail
-          for v in SSH_HOST SSH_PORT SSH_USER SSH_PRIVATE_KEY DOCROOT; do
+          for v in FTP_HOST FTP_USER FTP_PASS DOCROOT; do
             if [ -z "${!v:-}" ]; then
               echo "::error::Hiányzó secret: $v — állítsd be a repo Settings → Secrets alatt."; exit 1
             fi
           done
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          echo "Deploy ${GITHUB_SHA::7} → ${SSH_USER}@${SSH_HOST}:${DOCROOT} (SFTP)"
-          # SFTP-vel (shell nem kell). mirror -R = feltöltés; --delete NINCS → overlay, nem töröl.
-          lftp -c "set sftp:connect-program 'ssh -a -x -l ${SSH_USER} -i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes'; set net:max-retries 2; set net:timeout 25; set sftp:auto-confirm yes; open sftp://${SSH_USER}@${SSH_HOST}; mirror -R --verbose --no-perms --parallel=3 build/ ${DOCROOT}; bye"
+          # jelszó/usernév biztonságos beillesztése lftp egyszeres-idézőjeles stringbe
+          user_esc=${FTP_USER//\'/\'\\\'\'}
+          pass_esc=${FTP_PASS//\'/\'\\\'\'}
+          umask 077; SCRIPT="$RUNNER_TEMP/lftp.cmd"
+          {
+            echo "set ftp:ssl-force true"
+            echo "set ftp:ssl-protect-data true"
+            echo "set ssl:verify-certificate no"
+            echo "set net:max-retries 2"
+            echo "set net:timeout 25"
+            printf 'open ftp://%s\n' "$FTP_HOST"
+            printf "user '%s' '%s'\n" "$user_esc" "$pass_esc"
+            # mirror -R = feltöltés; --delete NINCS → overlay, a public_html többi tartalmát nem törli
+            printf 'mirror -R --verbose --no-perms --parallel=3 build/ %s\n' "$DOCROOT"
+            echo "bye"
+          } > "$SCRIPT"
+          echo "Deploy ${GITHUB_SHA::7} → ${FTP_HOST}:${DOCROOT} (FTPS)"
+          lftp -f "$SCRIPT"; rc=$?
+          rm -f "$SCRIPT"
+          exit $rc
 
       - name: Cloudflare cache purge
         env:
