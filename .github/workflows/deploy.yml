@@ -47,10 +47,14 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          echo "Deploy ${GITHUB_SHA::7} → ${SSH_USER}@${SSH_HOST}:${DOCROOT}"
+          SSHOPTS="-i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+          echo "SSH auth teszt → ${SSH_USER}@${SSH_HOST}:${SSH_PORT}"
+          ssh $SSHOPTS "${SSH_USER}@${SSH_HOST}" 'echo "OK: $(hostname)"' || {
+            echo "::error::SSH auth sikertelen — ellenőrizd: a github-deploy kulcs Authorize-olva van? nincs rajta passphrase? jó a host/port/user?"; exit 1; }
+          echo "Deploy ${GITHUB_SHA::7} → ${DOCROOT}"
           # -r rekurzív, -l szimlinkek, -z tömörítés; perm/owner NEM erőltetve (shared hostingon korlátozott)
           rsync -rlvz --no-perms --no-owner --no-group --omit-dir-times \
-            -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new" \
+            -e "ssh $SSHOPTS" \
             build/ "${SSH_USER}@${SSH_HOST}:${DOCROOT}"
 
       - name: Cloudflare cache purge
