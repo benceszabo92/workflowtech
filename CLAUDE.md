@@ -59,7 +59,7 @@ fájlnévvel (a `gep_img()` normalizálva keresi meg).
 
 ## Képek
 
-- `images/gepek/` — gépfotók (a kártyákhoz, lightboxszal nagyíthatók)
+- `images/gepek/` — gépfotók (a kártyákhoz; ráhúzva finom zoom-animáció, nincs lightbox/nagyítás)
 - `images/wenzel/` — WENZEL LH 87 mérőszoba galéria (Minőség oldal)
 - `images/grants/` — pályázati képek (Referenciák; fájlnév: `<program>-<év>-N.jpg`)
 - `images/brand/szechenyi.png` — Széchenyi 2020 logó (lásd lent)
@@ -70,9 +70,14 @@ sorrendjéhez igazítva).
 ## Széchenyi 2020 logó (pályázati kötelezettség)
 
 - A kezdőlap jobb alsó sarkában fixen, görgetés nélkül látszik; kattintásra a Referenciák oldalra visz.
+  **Telefonon (≤640px) elrejtve** (`display:none`) — kérésre nem jelenik meg kis kijelzőn.
 - Kapcsoló a `build.py` tetején: `SHOW_SZECHENYI = True`.
   Kb. 1 évig kell fenn lennie. Levételhez állítsd `False`-ra és futtasd újra a buildet.
 - A logófájl: `images/brand/szechenyi.png` (hivatalos „Kedvezményezetti infoblokk, alsó változat, ERFA”).
+- Megjelenítés: a `css/style.css` `.szechenyi`-jén `clip-path: circle(...)` a kép kék ívére
+  vágja a fehér dobozt (jobb-alsó 90°-os sarok, bal-felső nagy ív, az ív mellett ~1-2 mm fehér).
+  A kör a kép ívéhez van mérve (középpont ~73%/101%, sugár ~77%); a kép maga változatlan.
+  Méret a `.szechenyi{width:…}`-ben állítható (desktop 236px); telefonon rejtve.
 
 ## Ügyfél-logók (Referenciák)
 

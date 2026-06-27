@@ -36,22 +36,6 @@
     });
   });
 
-  // lightbox (géppark fotók nagyítása)
-  var lb = document.getElementById('lb');
-  if (lb) {
-    var lbi = document.getElementById('lbimg'), lbc = document.getElementById('lbcap');
-    document.querySelectorAll('.imgwrap[data-img]').forEach(function (w) {
-      w.addEventListener('click', function () {
-        lbi.src = w.dataset.img; lbi.alt = w.dataset.name || '';
-        lbc.textContent = w.dataset.name || ''; lb.classList.add('on');
-      });
-    });
-    function close() { lb.classList.remove('on'); }
-    document.getElementById('lbx').addEventListener('click', close);
-    lb.querySelector('.bd').addEventListener('click', close);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-  }
-
   // reveal animáció
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('in'); });
