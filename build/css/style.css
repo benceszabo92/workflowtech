@@ -58,12 +58,10 @@ footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--b1);fon
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}@media(max-width:900px){.bgrid{grid-template-columns:1fr}}
 .bcard{background:var(--s1);border:1px solid var(--b1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
 .bcard:hover{border-color:var(--b2)}
-.bcard .imgwrap{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;cursor:zoom-in;position:relative;overflow:hidden}
+.bcard .imgwrap{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .bcard .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .3s}
 .bcard .imgwrap:hover img{transform:scale(1.04)}
-.bcard .imgwrap.ph{background:linear-gradient(180deg,#16202b,#121821);cursor:default}.ph svg{width:34%}
-.bcard .imgwrap .zhint{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:8px;background:rgba(11,15,20,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;transition:.2s;backdrop-filter:blur(4px)}
-.bcard .imgwrap:hover .zhint{opacity:1}
+.bcard .imgwrap.ph{background:linear-gradient(180deg,#16202b,#121821)}.ph svg{width:34%}
 .bcard .body{padding:24px 24px 26px;display:flex;flex-direction:column}
 .bcard h3{font-size:19px;font-weight:800;letter-spacing:-.01em;color:var(--t);line-height:1.2}
 .bcard .sub{font-size:13.5px;color:var(--tm);margin-top:5px}
@@ -75,14 +73,6 @@ footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--b1);fon
 .feats{display:flex;flex-direction:column;gap:7px;margin-top:16px}
 .feat{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--tb);line-height:1.4}
 .feat .p{color:var(--ac2);font-weight:800;flex:none}
-/* lightbox */
-.lb{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:30px}
-.lb.on{display:flex}.lb .bd{position:absolute;inset:0;background:rgba(4,7,11,.85);backdrop-filter:blur(8px)}
-.lb .inner{position:relative;max-width:980px;width:100%;text-align:center;animation:pop .3s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
-.lb .inner img{max-width:100%;max-height:78vh;border-radius:14px;background:#fff}
-.lb .cap{margin-top:14px;color:var(--t);font-weight:700;font-size:16px}
-.lb .x{position:absolute;top:-46px;right:0;width:40px;height:40px;border-radius:50%;border:1px solid var(--b2);background:rgba(11,15,20,.6);color:#fff;font-size:18px;cursor:pointer}
 
 /* === MINOSEG_CSS === */
 
@@ -225,14 +215,17 @@ footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--b1);fon
 .pillar .more{color:var(--ac2);font-size:13px;font-weight:600;margin-top:14px;display:inline-block}
 .logos{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
 .logos span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--tm);border:1px solid var(--b1);border-radius:100px;padding:8px 16px}
-/* Széchenyi 2020 kötelező pályázati logó — jobb alsó sarok, görgetés nélkül látható */
-.szechenyi{position:fixed;right:22px;bottom:22px;z-index:50;display:block;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 12px 34px -10px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;cursor:pointer;line-height:0;padding:6px}
-.szechenyi:hover{transform:scale(1.06) translateY(-2px);box-shadow:0 22px 48px -10px rgba(0,0,0,.65),0 0 0 1px rgba(37,99,235,.45)}
-.szechenyi:active{transform:scale(1.02)}
-.szechenyi img{display:block;width:300px;height:auto;border-radius:8px}
-/* helyőrző, amíg a logó nincs a helyén */
-.szechenyi .ph-sz{width:300px;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#1b3a8f,#0f2356);color:#fff;font-family:"Plus Jakarta Sans",sans-serif;padding:10px;border-radius:8px}
-.szechenyi .ph-sz b{font-size:22px;font-weight:800;letter-spacing:.5px}
-.szechenyi .ph-sz b span{color:#5fa8ff}
-.szechenyi .ph-sz small{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.08em;opacity:.85;margin-top:6px;line-height:1.4}
-@media(max-width:640px){.szechenyi{right:12px;bottom:12px;padding:4px}.szechenyi img,.szechenyi .ph-sz{width:200px}.szechenyi .ph-sz{height:84px}.szechenyi .ph-sz b{font-size:16px}}
+/* Széchenyi 2020 kötelező pályázati logó — jobb alsó sarok, görgetés nélkül.
+   A kép kék íve adja a formát: clip-path körrel az ívre vágva (jobb-alsó 90°-os sarok,
+   bal-felső nagy ív), a kék ív mellett ~1-2 mm fehér csíkkal. */
+.szechenyi{position:fixed;right:16px;bottom:16px;z-index:50;width:236px;pointer-events:none;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.5)) drop-shadow(0 2px 6px rgba(0,0,0,.3));transition:filter .25s}
+.szechenyi a{display:block;pointer-events:auto;cursor:pointer;line-height:0;transform-origin:bottom right;
+  -webkit-clip-path:circle(77.4% at 73.1% 100.7%);clip-path:circle(77.4% at 73.1% 100.7%);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.szechenyi a img{display:block;width:100%;height:auto}
+.szechenyi a:hover{transform:scale(1.05)}
+.szechenyi a:active{transform:scale(1.02)}
+.szechenyi:has(a:hover){filter:drop-shadow(0 18px 36px rgba(0,0,0,.6)) drop-shadow(0 0 3px rgba(37,99,235,.4))}
+/* Mobilon (telefon) elrejtve — kérésre nem jelenik meg a pályázati logó */
+@media(max-width:640px){.szechenyi{display:none}}

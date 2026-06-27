@@ -16,9 +16,10 @@ REMOVE = {'NEUAR CNC-C50','TOS BPH 320A','AVEMAX VH-250VS-SP'}
 LIST_ONLY = [('TOS SV18RA','Univerzális csúcseszterga'),('MVE-280','Univerzális csúcseszterga'),
              ('TOS FN-32','Szerszámmarógép'),('KU 250-01','Palástköszörű')]
 LIST_ONLY_NAMES = {n for n,_ in LIST_ONLY}
-CNC_ORDER = ['DMG MOri - CTX beta 1250 TC','DMG MORI T2 V3 PLUS','MAZAK QT200M','JUNKER GRINDOR SILVER',
- 'Eduturn 400 L2','CHARMILLES ROBOFORM 20','DMG MORI CMX-70-U','NCT VD510-S + TJR 5AXIS','NCT KAFO CV7-A',
- 'EMCO FB-600 MC','NCT EmR-1200D','SODICK VZ300L','Hartford omnis vmc-850s']
+# Sorrend (2 oszlopos rács): 1.sor CTX beta | CMX-70-U · 2.sor MAZAK | T2 · 3.sor VD510 | KAFO CV7-A
+CNC_ORDER = ['DMG MOri - CTX beta 1250 TC','DMG MORI CMX-70-U','MAZAK QT200M','DMG MORI T2 V3 PLUS',
+ 'NCT VD510-S + TJR 5AXIS','NCT KAFO CV7-A','JUNKER GRINDOR SILVER','Eduturn 400 L2',
+ 'CHARMILLES ROBOFORM 20','EMCO FB-600 MC','NCT EmR-1200D','SODICK VZ300L','Hartford omnis vmc-850s']
 EGY_ORDER = ['ECO LASER 2600','ELBO CONTROLLI E346+','PROTH PSGS-80','TOS SN 32/1000','TOS FNGJ-32D',
  'charmilles form 2lc','PALMARY GU42 x 60S','GARANT SU1 CU1','EX4060A']
 DISPLAY = {'DMG MOri - CTX beta 1250 TC':'DMG MORI – CTX beta 1250 TC','Hartford omnis vmc-850s':'Hartford Omnis VMC-850S',
@@ -35,7 +36,7 @@ def card_html(name):
         feats+=f'<div class="feat"><span class="p">+</span><span>{H.escape(t)}</span></div>'
     fb=f'<div class="feats">{feats}</div>' if feats else ''
     if img:
-        iw=f'<div class="imgwrap" data-img="{img}" data-name="{dn}"><img src="{img}" alt="{dn}" loading="lazy"><span class="zhint">⤢</span></div>'
+        iw=f'<div class="imgwrap"><img src="{img}" alt="{dn}" loading="lazy"></div>'
     else:
         iw='<div class="imgwrap ph"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 14l5-4 4 3 4-5 5 6"/></svg></div>'
     return f'<article class="bcard">{iw}<div class="body"><h3>{dn}</h3><div class="sub">{sub}</div><div class="rule"></div><div class="specs">{rows}</div>{fb}</div></article>'
@@ -47,15 +48,14 @@ def build_geppark():
     n_total=len([n for n in CNC_ORDER if n not in REMOVE and n not in LIST_ONLY_NAMES])+len([n for n in EGY_ORDER if n not in REMOVE and n not in LIST_ONLY_NAMES])+len(LIST_ONLY)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Géppark</div>
 <h1>{n_total} gép, a teljes forgácsolási lánc</h1>
-<p>Esztergálás, marás, szikraforgácsolás, köszörülés és mérés — egy üzemben. Minden gépnél a teljes műszaki adatsor; a fotóra kattintva kinagyítható.</p>
+<p>Esztergálás, marás, szikraforgácsolás, köszörülés és mérés — egy üzemben. Minden gépnél a teljes műszaki adatsor.</p>
 <div class="tabbar"><div class="tabs"><button class="tab on" data-pane="cnc">CNC Gépeink</button><button class="tab" data-pane="egy">Egyetemes Gépeink</button></div></div></div></header>
 <div class="wrap tabhost">
 <section class="tabpane on" id="t-cnc" style="padding-top:0"><div class="bgrid">{cnc}</div></section>
 <section class="tabpane" id="t-egy" style="padding-top:0"><div class="bgrid">{egy}</div>
 <div class="simplelist"><div class="sl-h">// További egyetemes gépek</div>{lst}</div></section>
 <div class="cta-band"><h2>Megvan a géped hozzá? Mi is.</h2><p>Küldd el a rajzot — visszajelzünk a megmunkálhatóságról és az árról.</p>
-<div class="row"><a href="kapcsolat.html" class="btn pri">Ajánlatkérés</a><a href="minoseg.html" class="btn sec">Minőség &amp; mérőszoba</a></div></div></div>
-<div class="lb" id="lb"><div class="bd"></div><div class="inner"><button class="x" id="lbx" aria-label="Bezárás">✕</button><img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div></div></div>'''
+<div class="row"><a href="kapcsolat.html" class="btn pri">Ajánlatkérés</a><a href="minoseg.html" class="btn sec">Minőség &amp; mérőszoba</a></div></div></div>'''
     page_shell('geppark','Géppark — Workflow Tech Kft.','27 CNC és egyetemes gép — a teljes forgácsolási lánc egy üzemben, teljes műszaki adatokkal.',body)
 
 # ============================================================
@@ -258,9 +258,9 @@ def build_kapcsolat():
 def build_index():
     sz=''
     if SHOW_SZECHENYI:
-        sz=('''<a class="szechenyi" href="referenciak.html" title="Széchenyi 2020 — Pályázataink" aria-label="Széchenyi 2020 pályázati logó">
+        sz=('''<div class="szechenyi"><a href="referenciak.html" title="Széchenyi 2020 — Pályázataink" aria-label="Széchenyi 2020 pályázati logó">
 <img src="images/brand/szechenyi.png" alt="Széchenyi 2020 — Európai Regionális Fejlesztési Alap — Befektetés a jövőbe">
-</a>''')
+</a></div>''')
     brands=['DMG MORI','MAZAK','JUNKER','SODICK','CHARMILLES','RENISHAW','WENZEL','HARTFORD']
     bl=''.join(f'<span>{b}</span>' for b in brands)
     body=f'''{sz}
