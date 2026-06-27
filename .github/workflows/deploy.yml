@@ -50,7 +50,7 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           echo "Deploy ${GITHUB_SHA::7} → ${SSH_USER}@${SSH_HOST}:${DOCROOT} (SFTP)"
           # SFTP-vel (shell nem kell). mirror -R = feltöltés; --delete NINCS → overlay, nem töröl.
-          lftp -c "set sftp:connect-program 'ssh -a -x -i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes'; set net:max-retries 2; set net:timeout 25; set sftp:auto-confirm yes; open sftp://${SSH_USER}@${SSH_HOST}; mirror -R --verbose --no-perms --parallel=3 build/ ${DOCROOT}; bye"
+          lftp -c "set sftp:connect-program 'ssh -a -x -l ${SSH_USER} -i $HOME/.ssh/deploy_key -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new -o BatchMode=yes'; set net:max-retries 2; set net:timeout 25; set sftp:auto-confirm yes; open sftp://${SSH_USER}@${SSH_HOST}; mirror -R --verbose --no-perms --parallel=3 build/ ${DOCROOT}; bye"
 
       - name: Cloudflare cache purge
         env:
