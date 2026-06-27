@@ -91,3 +91,9 @@ az adott `.wm` elemet cseréld `<img class="logoimg" src="images/brand/xxx.svg" 
 A `build/` mappa **teljes tartalmát** kell a cPanel `public_html`-jébe másolni
 (index.html + a többi .html + css/ + js/ + images/). A `regi-2016/` a régi oldal archív helye —
 azt nem ez a projekt kezeli.
+
+**Automatikus deploy:** a `.github/workflows/deploy.yml` minden main-push/merge után rsync-kel
+feltölti a `build/`-et a `public_html`-be (overlay, NEM töröl), majd purge-öli a Cloudflare cache-t.
+Onnantól **a main-be mergelés magától élesít** — nincs kézi cPanel-kattintgatás. A szükséges
+repo-secret-ek és az egyszeri beállítás: `.github/DEPLOY_SETUP.md`.
+A kézi fallback továbbra is megvan (cPanel → Git Version Control → Update from Remote → Deploy HEAD Commit).
