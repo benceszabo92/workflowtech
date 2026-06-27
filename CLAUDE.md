@@ -86,14 +86,17 @@ Knorr-Bremse, Rolls-Royce, Harlo) — nem a hivatalos logók. Ha valódi logó k
 az adott `.wm` elemet cseréld `<img class="logoimg" src="images/brand/xxx.svg" alt="…">`-re a
 `build_referenciak()`-ben. (Jogi felelősség: a védjegyek használatát a tulajdonos engedélyezze.)
 
-## Deploy (feltöltés)
+## Deploy (Cloudflare)
 
-A `build/` mappa **teljes tartalmát** kell a cPanel `public_html`-jébe másolni
-(index.html + a többi .html + css/ + js/ + images/). A `regi-2016/` a régi oldal archív helye —
-azt nem ez a projekt kezeli.
+A webkiszolgálás **dotroll cPanelről Cloudflare-re költözik** (2026-06-27-től). Az oldal statikus,
+ezért **Cloudflare Workers (assets-only)** szolgálja ki a `build/` mappát:
 
-**Automatikus deploy:** a `.github/workflows/deploy.yml` minden main-push/merge után rsync-kel
-feltölti a `build/`-et a `public_html`-be (overlay, NEM töröl), majd purge-öli a Cloudflare cache-t.
-Onnantól **a main-be mergelés magától élesít** — nincs kézi cPanel-kattintgatás. A szükséges
-repo-secret-ek és az egyszeri beállítás: `.github/DEPLOY_SETUP.md`.
-A kézi fallback továbbra is megvan (cPanel → Git Version Control → Update from Remote → Deploy HEAD Commit).
+- A `wrangler.jsonc` a repó gyökerében a `build/`-re mutat (`assets.directory`).
+- A Cloudflare Workers Build a GitHub `main`-hez van kötve; **minden main-push után `npx wrangler deploy`**
+  fut, és magától élesít — nincs FTP/SSH/cache-purge. (Build command: None, mert a `build/` be van commitolva.)
+- A `build/` előállítása változatlan: `python3 build.py` → commit → push `main`.
+- Domain a dotroll regisztrátornál marad; **email a Google Workspace-en** (MX `smtp.google.com`) — a web-DNS
+  átállításakor az MX/DKIM/SPF/DMARC rekordokhoz NEM nyúlunk.
+
+A `regi-2016/` a régi cPanel-oldal archív helye — azt nem ez a projekt kezeli.
+(A korábbi cPanel/FTPS deploy megszűnt; a `.cpanel.yml` átmenetileg még a repóban van.)
