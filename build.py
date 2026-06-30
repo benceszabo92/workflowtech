@@ -156,7 +156,7 @@ def build_workflowpro():
 <div><div class="pro-badge"><span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;display:inline-block"></span> Workflow Pro · ERP gyártóknak</div>
 <h1 style="margin-top:14px">A műhely, egyetlen képernyőn</h1>
 <p>A Workflow Pro a forgácsoló- és szerszámkészítő üzemek vállalatirányítási rendszere: valós idejű gyártásriport, munkalapok, kapacitástervezés és kalkuláció — egy helyen.</p>
-<div class="row" style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap"><a href="https://workflowpro.hu" target="_blank" rel="noopener" class="btn pri">workflowpro.hu</a><a href="kapcsolat.html" class="btn sec">Bemutatót kérek</a></div></div>
+<div class="row" style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap"><a href="workflow-pro-demo.html" class="btn pri">Élő demó megtekintése</a><a href="kapcsolat.html" class="btn sec">Bemutatót kérek</a></div></div>
 <div class="pro-mock"><div class="bar"><i></i><i></i><i></i></div>
 <div class="kpis"><div class="kpi"><div class="l">Gépkihasználtság</div><div class="v ac">87%</div></div><div class="kpi"><div class="l">Aktív munkalap</div><div class="v">24</div></div>
 <div class="kpi"><div class="l">Mai gépidő</div><div class="v">142 ó</div></div><div class="kpi"><div class="l">Határidőre</div><div class="v ac">96%</div></div></div>
@@ -164,11 +164,17 @@ def build_workflowpro():
 </div></div></header>
 <section><div class="wrap"><div class="shead reveal"><div class="ey">// Funkciók</div><h2>Amit egy gyártó nap mint nap használ</h2>
 <p>Nem általános ERP — a forgácsolóüzem tényleges folyamataira építve.</p></div><div class="fgrid">{profeats}</div></div></section>
-<section><div class="wrap"><div class="shead reveal" style="text-align:center"><div class="ey">// Árazás</div><h2>Egyszerű, kiszámítható</h2></div>
-<div class="price reveal"><div class="amt">199 €<span> / hó</span></div>
-<ul><li>Korlátlan munkalap és gép</li><li>Valós idejű riportok</li><li>Kapacitástervezés</li><li>Költségkalkuláció</li><li>Folyamatos frissítések</li></ul>
-<div style="margin-top:26px"><a href="https://workflowpro.hu" target="_blank" rel="noopener" class="btn pri">Részletek a workflowpro.hu-n</a></div></div></div></section>'''
-    page_shell('workflow-pro','Workflow Pro — gyártásirányítás | Workflow Tech Kft.','Vállalatirányítási rendszer gyártóknak: valós idejű riport, munkalapok, kapacitástervezés, kalkuláció. 199 €/hó.',body)
+<section><div class="wrap"><div class="shead reveal"><div class="ey">// Folyamat</div><h2>Az ajánlatkéréstől a számlázásig</h2>
+<p>Minden lépés egy rendszerben — a partner pedig az ügyfélportálon valós időben követi a saját projektjeit.</p></div>
+<div class="steps">
+<div class="step reveal"><div class="num">01</div><h4>Ajánlatkérés</h4><p>A partner beküldi az igényt; a tételek — alkatrész és kereskedelmi cikk — a rajzzal és a 3D modellel együtt rögzülnek.</p></div>
+<div class="step reveal"><div class="num">02</div><h4>Feldolgozás &amp; kalkuláció</h4><p>A Workflow Pro a technológia, a gépidő és az anyag alapján összeállítja az ajánlati árat.</p></div>
+<div class="step reveal"><div class="num">03</div><h4>Kiajánlás dokumentációval</h4><p>A partner az ajánlat mellé minden tétel teljes dokumentációját megkapja: rajz, 3D modell, adatlap.</p></div>
+<div class="step reveal"><div class="num">04</div><h4>Ügyfélportál</h4><p>A megrendelő digitálisan, valós időben követi a projektjei és megrendelései állapotát — a kiszállításig.</p></div>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Nézze meg működés közben</h2><p>Egy működő mintán végigvezetjük az ajánlatkéréstől a kiajánláson át a számlázásig.</p>
+<div class="row"><a href="workflow-pro-demo.html" class="btn pri">Élő demó megtekintése</a><a href="kapcsolat.html" class="btn sec">Bemutatót kérek</a></div></div></div></section>'''
+    page_shell('workflow-pro','Workflow Pro — gyártásirányítás | Workflow Tech Kft.','Vállalatirányítási rendszer gyártóknak: valós idejű riport, munkalapok, kapacitástervezés, kalkuláció — az ajánlatkéréstől a számlázásig.',body)
 
 # ============================================================
 #  GYÁRTÁS
@@ -214,15 +220,19 @@ def build_rolunk():
      ('Teljes lánc','Esztergálástól a mérésig minden házon belül — gyorsabb átfutás, kevesebb hibalehetőség.',
      '<path d="M4 7h16M4 12h16M4 17h10"/>'),
      ('Saját szoftver','A Workflow Pro-val a saját gyártásunkat is mi optimalizáljuk — és ezt adjuk tovább.',
-     '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M8 9l3 3-3 3"/>')]
+     '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M8 9l3 3-3 3"/>'),
+     ('Prototípustól sorozatig','Egyedi prototípusoktól a kis- és közepes szériákig — ugyanazzal a mérhető minőséggel.',
+     '<path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/>'),
+     ('Saját készülékgyártás','A prototípusokhoz és a megrendelői alkatrészekhez a befogó- és mérőkészülékeket is mi készítjük.',
+     '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/>')]
     vl=''.join(f'<div class="vrow reveal"><div class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{ico}</svg></div><div><h4>{H.escape(n)}</h4><p>{H.escape(d)}</p></div></div>' for n,d,ico in VALS)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Rólunk</div>
 <h1>Szerszámkészítésből precíziós gyártás és szoftver</h1>
-<p>A Workflow Tech Kft. (korábban Szabó Szerszámkészítő Kft.) Szigetbecsén működő precíziós fémmegmunkáló üzem — mára saját fejlesztésű vállalatirányítási szoftverrel, a Workflow Pro-val.</p></div></header>
+<p>A Workflow Tech Kft. a Szabó Szerszámkészítő Kft. átalakulásával jött létre: a szerszámkészítésben szerzett évtizedes tudást ma prototípusok, valamint kis- és közepes szériák precíziós gyártására fordítjuk — 20+ év CAM-tapasztalattal az egyedi megmunkálásban, saját fejlesztésű Workflow Pro rendszerrel.</p></div></header>
 <section style="padding-top:24px"><div class="wrap"><div class="statgrid">{sg}</div></div></section>
 <section><div class="wrap"><div class="about"><div class="reveal"><div class="ey">// A cég</div>
 <h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--t);margin-top:8px">Évtizedek tapasztalata, mai eszközökkel</h2>
-<p>Folyamatos géppark-fejlesztéssel és minőségirányítással építettük fel azt a képességet, amivel vasút-, gépjármű- és repülőgépipari beszállítóként is megfelelünk. A gyártás mellett a saját üzemünk működtetéséből nőtt ki a Workflow Pro — a gyártóknak szánt vállalatirányítási rendszer.</p>
+<p>Folyamatos géppark-fejlesztéssel és minőségirányítással építettük fel azt a képességet, amivel vasút-, gépjármű- és repülőgépipari beszállítóként is megfelelünk. Prototípusokat és kis- s közepes szériákat egyaránt gyártunk, a darabokhoz szükséges befogó- és mérőkészülékeket pedig házon belül tervezzük és készítjük. A saját üzemünk működtetéséből nőtt ki a Workflow Pro — a gyártóknak szánt vállalatirányítási rendszer, amely az ajánlatkéréstől a kiszállításig minden folyamatunkat összefogja.</p>
 <div class="row" style="margin-top:22px"><a href="geppark.html" class="btn pri">Géppark</a><a href="workflow-pro.html" class="btn sec">Workflow Pro</a></div></div>
 <div class="vlist reveal">{vl}</div></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Dolgozzunk együtt</h2><p>Akár alkatrész, akár szoftver — keress minket.</p>
@@ -267,7 +277,7 @@ def build_index():
 <header class="home-hero"><div class="wrap">
 <div class="ey">// Precíziós fémmegmunkálás &amp; szoftver</div>
 <h1 style="margin-top:14px">Precíziós gyártás,<br><span class="ac">mérhető</span> minőséggel</h1>
-<p>Szerszámkészítés és komplett CNC-forgácsolás egy üzemben, vasút-, gépjármű- és repülőgépipari beszállítói minőségben — saját fejlesztésű gyártásirányító szoftverrel, a Workflow Pro-val.</p>
+<p>Szabó Szerszámkészítőből precíziós gyártóvá alakultunk — prototípusok, valamint kis- és közepes szériák gyártása, 20+ év CAM-tapasztalattal az egyedi megmunkálásban. A darabokhoz a készülékeket is házon belül gyártjuk, és minden folyamatunkat a saját fejlesztésű Workflow Pro rendszerünk fogja össze.</p>
 <div class="row" style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap"><a href="geppark.html" class="btn pri">A teljes géppark</a><a href="kapcsolat.html" class="btn sec">Ajánlatkérés</a></div>
 </div></header>
 <section style="padding-top:24px"><div class="wrap"><div class="pillars">
@@ -276,14 +286,213 @@ def build_index():
 <a class="pillar reveal" href="workflow-pro.html"><div class="pi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
 <h3>Workflow Pro</h3><p>Vállalatirányítási rendszer gyártóknak: valós idejű riport, munkalapok, kapacitástervezés és kalkuláció.</p><span class="more">A szoftver →</span></a>
 </div></div></section>
-<section><div class="wrap"><div class="shead reveal" style="text-align:center"><div class="ey">// Géppark</div><h2>Élvonalbeli gépek, egy üzemben</h2></div>
-<div class="logos">{bl}</div></div></section>
+<section><div class="wrap"><div class="shead reveal"><div class="ey">// A cégről</div><h2>Szerszámkészítőből precíziós gyártó</h2>
+<p>A Szabó Szerszámkészítő Kft. évtizedes szerszámkészítő tudására építve jött létre a Workflow Tech Kft. Ma prototípusokat, valamint kis- és közepes szériákat gyártunk — 20+ év CAM-tapasztalattal az egyedi megmunkálásban. A megrendelői alkatrészekhez és prototípusokhoz a befogó- és mérőkészülékeket is házon belül tervezzük és gyártjuk.</p></div>
+<div class="fgrid">
+<article class="fcard reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/></svg></div><h3>Prototípustól sorozatig</h3><p>Egyedi prototípusoktól a kis- és közepes szériákig — ugyanazzal a mérhető minőséggel.</p></article>
+<article class="fcard reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div><h3>Saját készülékgyártás</h3><p>A prototípusokhoz és a megrendelői alkatrészekhez a készülékeket is mi tervezzük és gyártjuk.</p></article>
+<article class="fcard reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 7v5l3 2"/></svg></div><h3>20+ év CAM-tapasztalat</h3><p>Évtizedek egyedi gyártási tudása a komplex geometriák programozásában és megmunkálásában.</p></article>
+</div></div></section>
+<section><div class="wrap"><div class="shead reveal" style="text-align:center"><div class="ey">// Géppark</div><h2>Élvonalbeli gépek, egy üzemben</h2>
+<p style="margin:8px auto 0;max-width:56ch">27 CNC és egyetemes gép — a teljes forgácsolási lánc esztergálástól a mérésig, egy üzemben.</p></div>
+<div class="logos">{bl}</div>
+<div style="text-align:center;margin-top:24px"><a href="geppark.html" class="btn sec">A teljes géppark →</a></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Megvan a géped hozzá? Mi is.</h2><p>Küldd el a rajzot — visszajelzünk a megmunkálhatóságról és az árról.</p>
 <div class="row"><a href="kapcsolat.html" class="btn pri">Ajánlatkérés</a><a href="minoseg.html" class="btn sec">Minőség &amp; mérőszoba</a></div></div></div></section>'''
     page_shell('index','Workflow Tech Kft. — Precíziós fémmegmunkálás & szoftver','Precíziós CNC-forgácsolás és szerszámkészítés Szigetbecsén, ipari beszállítói minőségben, saját Workflow Pro gyártásirányító szoftverrel.',body)
 
+# ============================================================
+#  WORKFLOW PRO — ÉLŐ DEMÓ (read-only minta ügyfélportál / ERP)
+# ============================================================
+def build_workflowpro_demo():
+    def ft(n): return format(n,',d').replace(',',' ')+' Ft'
+    def doc(label):
+        return ('<span class="dm-doc" data-lock="Minta — a dokumentum nem nyitható meg.">'
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'
+                '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>'
+                + H.escape(label) + '</span>')
+    inv_total=1270000+1905000+642000; inv_paid=1270000+1905000; inv_due=642000
+
+    # ---------- oldalsáv ----------
+    NAV=[('dash','Áttekintő','<path d="M3 13h8V3H3zM13 21h8V11h-8zM13 3v6h8V3zM3 21h8v-6H3z"/>'),
+         ('part','Partnerek','<circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87"/>'),
+         ('proj','Projektek','<path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>'),
+         ('quote','Ajánlatok','<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/>'),
+         ('ship','Szállítólevelek','<rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/>'),
+         ('inv','Számlák','<path d="M4 2l2 1 2-1 2 1 2-1 2 1 2-1 2 1v18l-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/><path d="M8 8h8M8 12h8M8 16h5"/>'),
+         ('portal','Ügyfélportál','<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>')]
+    side=''.join(
+        '<button class="dm-nav'+(' on' if i==0 else '')+'" data-view="'+k+'">'
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+ico+'</svg>'
+        + H.escape(lab) + '</button>'
+        for i,(k,lab,ico) in enumerate(NAV))
+
+    # ---------- Áttekintő ----------
+    dash=f'''<div class="dm-h"><div><h3>Áttekintő</h3><div class="sub">Aximo Precision Kft. · gyártási irányítópult</div></div></div>
+<div class="dm-kpis">
+<div class="dm-kpi"><div class="l">Aktív projekt</div><div class="v ac">2</div></div>
+<div class="dm-kpi"><div class="l">Nyitott ajánlat</div><div class="v">1</div></div>
+<div class="dm-kpi"><div class="l">Kiszállítva (hó)</div><div class="v">1</div></div>
+<div class="dm-kpi"><div class="l">Kintlévőség</div><div class="v warn">{ft(inv_due)}</div></div>
+</div>
+<div class="dm-card"><div class="ch"><span>Legutóbbi mozgások</span><button class="dm-btn" data-go="proj">Projektek megnyitása</button></div>
+<table class="dm-table"><thead><tr><th>Bizonylat</th><th>Partner</th><th>Esemény</th><th>Állapot</th></tr></thead><tbody>
+<tr><td class="mono">SZ-2026-0312</td><td>AeroNova Components Kft.</td><td>Számla kiállítva</td><td><span class="dm-badge warn">Kifizetetlen</span></td></tr>
+<tr><td class="mono">SZL-2026-0188</td><td>HidroFlow Kft.</td><td>Szállítólevél lezárva</td><td><span class="dm-badge ok">Kiszállítva</span></td></tr>
+<tr><td class="mono">AJ-2026-0042</td><td>HidroFlow Kft.</td><td>Ajánlat kiküldve</td><td><span class="dm-badge info">Kiajánlva</span></td></tr>
+<tr><td class="mono">PRJ-2026-021</td><td>AeroNova Components Kft.</td><td>Projekt létrehozva</td><td><span class="dm-badge mut">Tervezés</span></td></tr>
+</tbody></table></div>'''
+
+    # ---------- Partnerek ----------
+    PARTNERS=[('HidroFlow Kft.','Hidraulika','Kovács Anna','a.kovacs@hidroflow.example',2),
+              ('AeroNova Components Kft.','Légtechnika / repülés','Tóth Gergő','g.toth@aeronova.example',1),
+              ('Tervgép Zrt.','Általános gépgyártás','Varga Béla','b.varga@tervgep.example',0),
+              ('MobilTech Automotive Kft.','Autóipari beszállító','Kiss Réka','r.kiss@mobiltech.example',1)]
+    prows=''.join(
+        f'<tr><td><b style="color:var(--t);font-weight:600">{H.escape(nm)}</b></td>'
+        f'<td>{H.escape(sec)}</td><td>{H.escape(con)}</td><td class="mono">{H.escape(em)}</td>'
+        f'<td class="r mono">{ap}</td>'
+        '<td class="r"><button class="dm-btn" data-lock="Minta — partneradat csak megtekinthető.">Megnyitás</button></td></tr>'
+        for nm,sec,con,em,ap in PARTNERS)
+    part=f'''<div class="dm-h"><div><h3>Partnerek</h3><div class="sub">{len(PARTNERS)} aktív partner a mintában</div></div><button class="dm-btn pri" data-lock="Minta — új partner nem rögzíthető.">+ Új partner</button></div>
+<div class="dm-card"><table class="dm-table"><thead><tr><th>Partner</th><th>Szektor</th><th>Kapcsolattartó</th><th>E-mail</th><th class="r">Projekt</th><th></th></tr></thead><tbody>{prows}</tbody></table></div>'''
+
+    # ---------- Projektek ----------
+    PROJ=[
+      {'name':'Hidraulika tömb sorozat','partner':'HidroFlow Kft.','id':'PRJ-2026-018','due':'2026-07-15','resp':'Nagy P.','status':('Gyártásban','info'),
+       'items':[('Hidraulika vezérlőtömb','A','HF-2200-BLK','AlMgSi1',50,['HF-2200_r3.pdf','HF-2200.step']),
+                ('Csatlakozó karima','A','HF-2200-FLG','1.4301',50,['HF-2200-FLG_r1.pdf','HF-2200-FLG.step']),
+                ('O-gyűrű készlet NBR70','K','OR-NBR70-KIT','—',100,[]),
+                ('Belső kulcsny. csavar M6×20 A2','K','DIN912-M6x20','A2',400,[])]},
+      {'name':'Prototípus befogókészülék','partner':'AeroNova Components Kft.','id':'PRJ-2026-021','due':'2026-07-28','resp':'Szabó B.','status':('Tervezés','mut'),
+       'items':[('Befogókészülék alaplap','A','AN-JIG-01','1.2312',1,['AN-JIG-01_r2.pdf','AN-JIG-01.step']),
+                ('Pozícionáló pecek','A','AN-JIG-PIN','1.2379 (edzett)',8,['AN-JIG-PIN_r1.pdf','AN-JIG-PIN.step']),
+                ('Gyorsszorító CL-200','K','CL-200','—',4,[])]},
+    ]
+    def proj_card(p):
+        name=p['name']; partner=p['partner']; pid=p['id']; due=p['due']; resp=p['resp']
+        stl=p['status'][0]; stc=p['status'][1]; items=p['items']; n=len(items); rows=''
+        for nm,ty,ck,mat,db,docs in items:
+            if ty=='A':
+                tag='<span class="dm-tag part">Alkatrész</span>'
+                dchips='<div class="dm-docs">'+''.join(doc(d) for d in docs)+'</div>'
+            else:
+                tag='<span class="dm-tag com">Kereskedelmi</span>'
+                dchips='<span style="color:var(--td)">—</span>'
+            rows+=(f'<tr><td><b style="color:var(--t);font-weight:600">{H.escape(nm)}</b></td>'
+                   f'<td>{tag}</td><td class="mono">{H.escape(ck)}</td><td>{H.escape(mat)}</td>'
+                   f'<td class="r mono">{db}</td><td>{dchips}</td></tr>')
+        return (f'<div class="dm-card"><div class="ch"><span>{H.escape(name)} · '
+                f'<span style="color:var(--tm);font-weight:500">{H.escape(partner)}</span></span>'
+                f'<span class="dm-badge {stc}">{H.escape(stl)}</span></div>'
+                f'<div class="dm-meta"><div><div class="k">Azonosító</div><div class="v">{H.escape(pid)}</div></div>'
+                f'<div><div class="k">Határidő</div><div class="v">{H.escape(due)}</div></div>'
+                f'<div><div class="k">Felelős</div><div class="v">{H.escape(resp)}</div></div>'
+                f'<div><div class="k">Tételek</div><div class="v">{n}</div></div></div>'
+                f'<table class="dm-table"><thead><tr><th>Tétel</th><th>Típus</th><th>Cikkszám</th><th>Anyag</th>'
+                f'<th class="r">Db</th><th>Dokumentumok</th></tr></thead><tbody>{rows}</tbody></table></div>')
+    proj=('<div class="dm-h"><div><h3>Projektek</h3><div class="sub">Alkatrészek (rajz + 3D modell) és kereskedelmi tételek egy projektben</div></div>'
+          '<button class="dm-btn pri" data-lock="Minta — új projekt nem hozható létre.">+ Új projekt</button></div>'
+          + ''.join(proj_card(p) for p in PROJ))
+
+    # ---------- Ajánlatok ----------
+    Q=[('Hidraulika vezérlőtömb','HF-2200-BLK',50,28500,['rajz','modell','adatlap']),
+       ('Csatlakozó karima','HF-2200-FLG',50,7200,['rajz','modell']),
+       ('O-gyűrű készlet NBR70','OR-NBR70-KIT',100,180,[]),
+       ('Belső kulcsny. csavar M6×20 A2','DIN912-M6x20',400,12,[])]
+    qrows=''; net=0
+    for nm,ck,qty,unit,docs in Q:
+        line=qty*unit; net+=line
+        dchips=('<div class="dm-docs">'+''.join(doc(d) for d in docs)+'</div>') if docs else '<span style="color:var(--td)">—</span>'
+        qrows+=(f'<tr><td><b style="color:var(--t);font-weight:600">{H.escape(nm)}</b></td>'
+                f'<td class="mono">{H.escape(ck)}</td><td class="r mono">{qty}</td>'
+                f'<td class="r mono">{ft(unit)}</td><td class="r mono">{ft(line)}</td><td>{dchips}</td></tr>')
+    vat=round(net*0.27); gross=net+vat
+    quote=f'''<div class="dm-h"><div><h3>Ajánlatok</h3><div class="sub">A partner az ajánlat mellé minden tétel teljes dokumentációját megkapja</div></div><button class="dm-btn pri" data-lock="Minta — új ajánlat nem készíthető.">+ Új ajánlat</button></div>
+<div class="dm-card"><div class="ch"><span>AJ-2026-0042 · HidroFlow Kft.</span><span class="dm-badge info">Kiajánlva</span></div>
+<div class="dm-meta"><div><div class="k">Kelt</div><div class="v">2026-05-02</div></div><div><div class="k">Érvényes</div><div class="v">2026-06-01</div></div><div><div class="k">Fizetés</div><div class="v">30 nap</div></div><div><div class="k">Projekt</div><div class="v">PRJ-2026-018</div></div></div>
+<table class="dm-table"><thead><tr><th>Tétel</th><th>Cikkszám</th><th class="r">Db</th><th class="r">Egységár</th><th class="r">Nettó</th><th>Dokumentumok</th></tr></thead><tbody>{qrows}
+<tr class="dm-tot"><td colspan="4" class="r">Nettó összesen</td><td class="r mono">{ft(net)}</td><td></td></tr>
+<tr class="dm-tot"><td colspan="4" class="r">ÁFA 27%</td><td class="r mono">{ft(vat)}</td><td></td></tr>
+<tr class="dm-tot"><td colspan="4" class="r">Bruttó összesen</td><td class="r mono">{ft(gross)}</td><td></td></tr>
+</tbody></table>
+<div style="padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--b1)"><button class="dm-btn pri" data-lock="Minta — PDF nem tölthető le.">PDF letöltése</button><button class="dm-btn" data-lock="Minta — az ajánlat nem küldhető el.">Küldés a partnernek</button></div></div>'''
+
+    # ---------- Szállítólevelek ----------
+    D=[('HF-2200-BLK','Hidraulika vezérlőtömb',50),('HF-2200-FLG','Csatlakozó karima',50),
+       ('OR-NBR70-KIT','O-gyűrű készlet NBR70',100),('DIN912-M6x20','Belső kulcsny. csavar M6×20 A2',400)]
+    drows=''.join(f'<tr><td class="mono">{H.escape(ck)}</td><td><b style="color:var(--t);font-weight:600">{H.escape(nm)}</b></td><td class="r mono">{db}</td></tr>' for ck,nm,db in D)
+    ship=f'''<div class="dm-h"><div><h3>Szállítólevelek</h3><div class="sub">Kiszállított tételek bizonylata</div></div><button class="dm-btn pri" data-lock="Minta — új szállítólevél nem készíthető.">+ Új szállítólevél</button></div>
+<div class="dm-card"><div class="ch"><span>SZL-2026-0188 · HidroFlow Kft.</span><span class="dm-badge ok">Kiszállítva</span></div>
+<div class="dm-meta"><div><div class="k">Kelt</div><div class="v">2026-06-12</div></div><div><div class="k">Projekt</div><div class="v">PRJ-2026-018</div></div><div><div class="k">Irány</div><div class="v">Aximo → HidroFlow</div></div></div>
+<table class="dm-table"><thead><tr><th>Cikkszám</th><th>Megnevezés</th><th class="r">Kiszállítva</th></tr></thead><tbody>{drows}</tbody></table></div>'''
+
+    # ---------- Számlák ----------
+    INV=[('SZ-2026-0298','HidroFlow Kft.','2026-04-30','2026-05-14',1270000,'ok','Fizetve'),
+         ('SZ-2026-0301','HidroFlow Kft.','2026-05-20','2026-06-03',1905000,'ok','Fizetve'),
+         ('SZ-2026-0312','AeroNova Components Kft.','2026-06-18','2026-07-02',642000,'warn','Kifizetetlen')]
+    irows=''.join(
+        f'<tr><td class="mono">{H.escape(no)}</td><td>{H.escape(pt)}</td>'
+        f'<td class="mono">{H.escape(d1)}</td><td class="mono">{H.escape(d2)}</td>'
+        f'<td class="r mono">{ft(amt)}</td><td><span class="dm-badge {bc}">{H.escape(bl)}</span></td>'
+        '<td class="r"><button class="dm-btn" data-lock="Minta — a számla csak megtekinthető.">Megtekintés</button></td></tr>'
+        for no,pt,d1,d2,amt,bc,bl in INV)
+    inv=f'''<div class="dm-h"><div><h3>Számlák</h3><div class="sub">Fizetett és kifizetetlen bizonylatok</div></div><button class="dm-btn pri" data-lock="Minta — új számla nem állítható ki.">+ Új számla</button></div>
+<div class="dm-kpis">
+<div class="dm-kpi"><div class="l">Kiállítva összesen</div><div class="v">{ft(inv_total)}</div></div>
+<div class="dm-kpi"><div class="l">Befolyt</div><div class="v ac">{ft(inv_paid)}</div></div>
+<div class="dm-kpi"><div class="l">Kintlévőség</div><div class="v warn">{ft(inv_due)}</div></div>
+<div class="dm-kpi"><div class="l">Számla</div><div class="v">3</div></div>
+</div>
+<div class="dm-card"><table class="dm-table"><thead><tr><th>Számlaszám</th><th>Partner</th><th>Kelt</th><th>Fiz. határidő</th><th class="r">Bruttó</th><th>Állapot</th><th></th></tr></thead><tbody>{irows}</tbody></table></div>'''
+
+    # ---------- Ügyfélportál ----------
+    STEPS=[('done','Ajánlat elfogadva','2026-05-02','Az AJ-2026-0042 ajánlatot a megrendelő visszaigazolta.'),
+           ('done','Anyagbeszerzés','2026-05-08','AlMgSi1 és 1.4301 alapanyag bevételezve, anyagigazolással.'),
+           ('now','Gyártásban','folyamatban','A vezérlőtömb és a karima CNC-megmunkálása zajlik, valós idejű nyomonkövetéssel.'),
+           ('todo','Mérés (WENZEL)','tervezett','Méréses jegyzőkönyv a koordináta-mérőgépről, egy felfogásból.'),
+           ('todo','Kiszállítás','2026-07-15','Csomagolás és szállítás a megrendelő telephelyére.')]
+    tsteps=''
+    for st,h4,dt,desc in STEPS:
+        mark='✓' if st=='done' else ('●' if st=='now' else '')
+        tsteps+=(f'<div class="dm-step {st}"><div class="ds-ico">{mark}</div>'
+                 f'<div><h4>{H.escape(h4)}</h4><div class="dt">{H.escape(dt)}</div><p>{H.escape(desc)}</p></div></div>')
+    portal=f'''<div class="dm-h"><div><h3>Ügyfélportál</h3><div class="sub">Így látja a megrendelő a saját projektjeit — valós időben, a megosztott dokumentumokkal</div></div><span class="dm-badge info">HidroFlow Kft. nézete</span></div>
+<div class="dm-grid2">
+<div class="dm-card"><div class="ch"><span>Hidraulika tömb sorozat</span><span class="dm-badge info">Gyártásban</span></div><div style="padding:16px"><div class="dm-time">{tsteps}</div></div></div>
+<div>
+<div class="dm-card"><div class="ch"><span>Megosztott dokumentumok</span></div><div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;align-items:flex-start">{doc("HF-2200_r3.pdf — rajz")}{doc("HF-2200.step — 3D modell")}{doc("Meresi_jegyzokonyv.pdf")}</div></div>
+<div class="dm-card"><div class="ch"><span>Számla állapota</span></div><table class="dm-table"><tbody>
+<tr><td class="mono">SZ-2026-0301</td><td class="r mono">{ft(1905000)}</td><td class="r"><span class="dm-badge ok">Fizetve</span></td></tr>
+</tbody></table></div>
+</div>
+</div>'''
+
+    views=(f'<div class="dm-view on" id="v-dash">{dash}</div>'
+           f'<div class="dm-view" id="v-part">{part}</div>'
+           f'<div class="dm-view" id="v-proj">{proj}</div>'
+           f'<div class="dm-view" id="v-quote">{quote}</div>'
+           f'<div class="dm-view" id="v-ship">{ship}</div>'
+           f'<div class="dm-view" id="v-inv">{inv}</div>'
+           f'<div class="dm-view" id="v-portal">{portal}</div>')
+    views=views.replace('<table class="dm-table">','<div class="dm-tw"><table class="dm-table">').replace('</table>','</table></div>')
+    body=f'''<header class="hero"><div class="wrap"><div class="ey">// Bemutató</div>
+<h1>Workflow Pro — élő demó</h1>
+<p>Egy működő bemutató példányon át: ajánlattól a számlázásig, partnerekkel, projektekkel és ügyfélportállal. A demó cég kitalált — <b style="color:var(--t)">Aximo Precision Kft.</b></p></div></header>
+<section style="padding-top:8px"><div class="wrap dm-wrap">
+<div class="dm-note"><div class="ic">i</div><p><b>Minta környezet.</b> Ez egy bemutató: az adatok kitaláltak, <b>adat nem tölthető fel és nem menthető</b>. A gombok a működést illusztrálják.</p></div>
+<div class="dm-frame reveal" id="dmapp">
+<aside class="dm-side"><div class="dm-brand"><span class="dot"></span><b>Aximo Precision Kft.</b></div>{side}</aside>
+<div class="dm-main"><div class="dm-top"><div class="co"><b>Aximo Precision Kft.</b><span class="dm-pill">Minta</span></div><div class="dm-user"><span>Demó felhasználó</span><span class="dm-av">AP</span></div></div>
+<div class="dm-body">{views}</div></div>
+</div>
+<div style="text-align:center;margin-top:22px"><a href="kapcsolat.html" class="btn pri">Kérek egy bemutatót</a> <a href="workflow-pro.html" class="btn sec">Vissza a Workflow Pro-hoz</a></div>
+</div></section>
+<div class="dm-toast" id="dm-toast"></div>'''
+    page_shell('workflow-pro-demo','Workflow Pro — élő demó | Workflow Tech Kft.','Működő bemutató: partnerek, ajánlat, szállítólevél, fizetett és kifizetetlen számlák, projektek rajzzal és modellel, ügyfélportál. Minta környezet.',body,'demo.js')
+
 # ===== build mind =====
-build_index(); build_workflowpro(); build_gyartas(); build_geppark()
+build_index(); build_workflowpro(); build_workflowpro_demo(); build_gyartas(); build_geppark()
 build_minoseg(); build_referenciak(); build_rolunk(); build_kapcsolat()
 print('Build kész →', BUILD)
 print('Oldalak:', ', '.join(f for _,f,_ in PAGES))

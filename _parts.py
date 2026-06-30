@@ -46,6 +46,7 @@ def logo(cls='logo'):
 PAGES = [
     ('index',        'index.html',        'Kezdőlap'),
     ('workflow-pro', 'workflow-pro.html', 'Workflow Pro'),
+    ('workflow-pro-demo', 'workflow-pro-demo.html', 'Workflow Pro – Demó'),
     ('gyartas',      'gyartas.html',      'Gyártás'),
     ('geppark',      'geppark.html',      'Géppark'),
     ('minoseg',      'minoseg.html',      'Minőség'),
@@ -73,7 +74,7 @@ def footer():
     return f'''<footer><div class="wrap"><div class="cols">
 <div><a href="index.html" aria-label="Workflow Tech">{logo()}</a><p class="ftag">Precíziós fémmegmunkálás és szerszámkészítés Szigetbecsén — vasút-, gépjármű- és repülőgépipari beszállítói minőségben.</p></div>
 <div><h4>Cég</h4><a href="gyartas.html">Gyártás</a><a href="geppark.html">Géppark</a><a href="minoseg.html">Minőség</a><a href="referenciak.html">Referenciák</a><a href="rolunk.html">Rólunk</a></div>
-<div><h4>Szoftver</h4><a href="workflow-pro.html">Workflow Pro</a><a href="kapcsolat.html">Kapcsolat</a></div>
+<div><h4>Szoftver</h4><a href="workflow-pro.html">Workflow Pro</a><a href="workflow-pro-demo.html">Workflow Pro – élő demó</a><a href="kapcsolat.html">Kapcsolat</a></div>
 </div><div class="copy"><span>© 2025 Workflow Tech Kft.</span><span class="mono">ISO 9001:2015 · www.workflowtech.hu</span></div></div></footer>'''
 
 def head(title, desc, extra_css=''):
