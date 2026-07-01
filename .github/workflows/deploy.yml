@@ -1,0 +1,27 @@
+name: Deploy to Cloudflare
+
+# Élesítés: minden main-push után automatikusan, és kézzel is indítható
+# (Actions fül → "Deploy to Cloudflare" → Run workflow, vagy: gh workflow run deploy.yml).
+# A build/ mappa a repóban van commitolva, ezért nincs build lépés — csak wrangler deploy.
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy build/ to Cloudflare Workers (assets-only)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
