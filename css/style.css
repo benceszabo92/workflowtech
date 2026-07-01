@@ -156,6 +156,26 @@ footer .copy{margin-top:30px;padding-top:18px;border-top:1px solid var(--b1);fon
 .clogo .logoimg{max-height:46px;max-width:150px;width:auto;height:auto;display:block}
 @media(max-width:560px){.clogo{min-width:140px;height:78px;padding:12px 18px}.wm{font-size:24px}}
 
+/* clients / partners — valódi logók fehér csempéken, auto-scroll sáv */
+.refwall{border:1px solid var(--b1);border-radius:18px;background:var(--s1);padding:34px 0 30px;overflow:hidden}
+.refwall .ch{text-align:center;margin-bottom:26px;padding:0 24px}
+.refwall .ch .ey{display:block}
+.refwall .ch h2{font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:-.02em;color:var(--t);margin-top:8px}
+.refwall .ch p{color:var(--tm);font-size:14px;margin-top:8px;max-width:56ch;margin-left:auto;margin-right:auto;line-height:1.6}
+.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.mtrack{display:flex;width:max-content;animation:marq 78s linear infinite;will-change:transform}
+.mset{display:contents}
+.marquee:hover .mtrack{animation-play-state:paused}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ref{flex:0 0 auto;width:168px;margin:0 6px;display:flex;flex-direction:column;align-items:center;gap:13px;text-decoration:none}
+.ref-logo{display:flex;align-items:center;justify-content:center;width:100%;height:56px}
+.ref-logo img{max-height:38px;max-width:134px;width:auto;height:auto;object-fit:contain;display:block;filter:brightness(0) invert(1);opacity:.72;transition:opacity .22s,transform .22s}
+.ref-name{font-size:12px;color:var(--tm);text-align:center;line-height:1.35;transition:color .2s;opacity:.9}
+.ref:hover .ref-logo img{opacity:1;transform:translateY(-2px)}
+.ref:hover .ref-name{color:var(--tb)}
+@media(max-width:560px){.ref{width:140px}.ref-logo{height:48px}.ref-logo img{max-height:32px;max-width:110px}}
+@media(prefers-reduced-motion:reduce){.mtrack{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.ref{margin-bottom:22px}.mset.dup{display:none}.marquee{-webkit-mask-image:none;mask-image:none}}
+
 /* === PRO_CSS === */
 
 .pro-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}@media(max-width:880px){.pro-hero{grid-template-columns:1fr}}

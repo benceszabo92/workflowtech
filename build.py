@@ -124,19 +124,37 @@ def grant_html(g,imgs,rev):
 
 def build_referenciak():
     cards=''.join(grant_html(g,GRANT_IMG[i],i%2==1) for i,g in enumerate(grants))
-    # Ügyfelek — betűtípussal modellezett wordmarkok. Valódi logóra cseréld a .wm-et:
-    #   <img class="logoimg" src="images/brand/siemens.svg" alt="Siemens">
-    def wm(inner,title): return f'<div class="clogo" title="{H.escape(title)}"><span class="wm">{inner}</span></div>'
-    siemens = wm('<span style="color:#009999;font-weight:600;letter-spacing:-.5px">siemens</span>','Siemens')
-    siemens_e = wm('<span style="color:#009999;font-weight:600;letter-spacing:-.5px">siemens</span><span style="color:#009999;font-weight:400;letter-spacing:-.3px"> energy</span>','Siemens Energy Kft.')
-    knorr = wm('<span style="display:inline-flex;flex-direction:column;line-height:.92;color:#00427f;font-weight:800;letter-spacing:.5px"><span style="font-size:.92em">KNORR</span><span style="font-size:.66em;letter-spacing:1.5px">BREMSE</span></span>','Knorr-Bremse Hungária Kft.')
-    rolls = wm('<span style="display:inline-flex;flex-direction:column;line-height:.95;color:#00498F;font-weight:600;letter-spacing:2px;text-align:center"><span style="font-size:.78em">ROLLS</span><span style="font-size:.78em">ROYCE</span></span>','Rolls-Royce')
-    harlo = wm('<span style="color:#1b3a5b;font-weight:800;letter-spacing:1px">HARLO</span><span style="color:#8A97A6;font-weight:600;letter-spacing:.5px"> Kft.</span>','Harlo Kft.')
-    logos = siemens+siemens_e+knorr+rolls+harlo
+    # Ügyfelek / partnerek — valódi logók fehér csempéken, névvel, auto-scroll sáv.
+    # Új partner: rakd a logót az images/brand/logos/-ba és vedd fel ide (név, fájl, weboldal).
+    REFCLIENTS=[
+     ("Siemens Zrt.","siemens.svg","https://www.siemens.com/hu-hu/"),
+     ("Siemens Energy Kft.","siemens-energy.svg","https://www.siemens-energy.com/global/en/home.html"),
+     ("Knorr-Bremse Hungária Kft.","knorr-bremse.svg","https://rail.knorr-bremse.com/"),
+     ("Rolls-Royce","rolls-royce.png","https://www.rolls-royce.com/country-sites/hungary-hu.aspx"),
+     ("KUKA Hungária Kft.","kuka.svg","https://www.kuka.com/"),
+     ("AVL Hungary Kft.","avl.png","https://www.avl.com/"),
+     ("OBO Bettermann Hungary Kft.","obo-bettermann.svg","https://www.obo.hu/"),
+     ("Schwarzmüller Kft.","schwarzmuller.png","https://schwarzmueller.com/hu/"),
+     ("Harlo Kft.","harlo.png","https://dorzshegesztes.hu/"),
+     ("Oncotherm Kft.","oncotherm.svg","https://www.oncotherm.com/"),
+     ("HUN-REN Magyar Kutatási Hálózat","hun-ren.png","https://hun-ren.hu/"),
+     ("Flame Spray Hungary Kft.","flame-spray.png","https://flamespray.org/"),
+     ("Gábos Kft.","gabos.svg","https://gabosplasztik.hu/"),
+     ("EXATON Kft.","exaton.svg","https://exaton.hu/"),
+     ("SMB Industries Kft.","smb.png","https://smb.at/"),
+    ]
+    def reftile(name,fn,url):
+        return (f'<a class="ref" href="{H.escape(url)}" target="_blank" rel="noopener" title="{H.escape(name)}">'
+                f'<span class="ref-logo"><img src="images/brand/logos/{fn}" alt="{H.escape(name)}" loading="lazy"></span>'
+                f'<span class="ref-name">{H.escape(name)}</span></a>')
+    reftiles=''.join(reftile(*c) for c in REFCLIENTS)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Referenciák</div>
 <h1>Pályázatok és fejlesztések</h1>
 <p>Az elmúlt évek európai uniós és hazai pályázatai a gépparkunkat és a mérési képességeinket fejlesztették — közvetlenül a mindennapi gyártásban hasznosulnak.</p></div></header>
-<section><div class="wrap"><div class="clients reveal"><div class="ch"><span class="ey">// Ügyfeleink</span></div><div class="logorow">{logos}</div></div></div></section>
+<section><div class="wrap"><div class="refwall reveal">
+<div class="ch"><span class="ey">// Ügyfeleink</span><h2>Akiknek gyártunk</h2><p>Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repüléstechnikáig.</p></div>
+<div class="marquee"><div class="mtrack"><div class="mset">{reftiles}</div><div class="mset dup" aria-hidden="true">{reftiles}</div></div></div>
+</div></div></section>
 <section style="padding-top:24px"><div class="wrap">{cards}</div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Precíziós gyártás, mérhető minőséggel</h2><p>A fejlesztéseink eredménye a mindennapi gyártásban is ott van.</p>
 <div class="row"><a href="geppark.html" class="btn pri">A teljes géppark</a><a href="minoseg.html" class="btn sec">Minőség &amp; mérőszoba</a></div></div></div></section>'''
