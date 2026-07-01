@@ -3,6 +3,7 @@
   // A kész build/ mappa tartalmát szolgálja ki a workflowtech.hu.
   // Deploy: `npx wrangler deploy` (a Cloudflare Workers Build futtatja main-push után).
   "name": "workflowtech",
+  "account_id": "0a391ebb3a2bb3f26da9a1d7081ae962",
   "compatibility_date": "2026-06-27",
   "assets": {
     "directory": "./build"
