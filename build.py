@@ -153,7 +153,7 @@ def build_referenciak():
 <p>Az elmúlt évek európai uniós és hazai pályázatai a gépparkunkat és a mérési képességeinket fejlesztették — közvetlenül a mindennapi gyártásban hasznosulnak.</p></div></header>
 <section><div class="wrap"><div class="refwall reveal">
 <div class="ch"><span class="ey">// Ügyfeleink</span><h2>Akiknek gyártunk</h2><p>Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repüléstechnikáig.</p></div>
-<div class="marquee"><div class="mtrack"><div class="mset">{reftiles}</div><div class="mset dup" aria-hidden="true">{reftiles}</div></div></div>
+<div class="reflogos">{reftiles}</div>
 </div></div></section>
 <section style="padding-top:24px"><div class="wrap">{cards}</div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Precíziós gyártás, mérhető minőséggel</h2><p>A fejlesztéseink eredménye a mindennapi gyártásban is ott van.</p>
