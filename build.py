@@ -84,8 +84,15 @@ def build_minoseg():
 <p>ISO 9001:2015 szerint tanúsított minőségirányítás és saját, CNC-vezérlésű mérőszoba — a gyártott geometria minden bázisa egy felfogásból, prémium pontossággal ellenőrizve.</p></div></header>
 <section><div class="wrap"><div class="iso reveal">
 <div class="isobadge"><div class="b1">ISO</div><div class="b2">9001:2015</div><div class="b3">Tanúsított</div></div>
-<div><h3>Tanúsított minőségirányítás</h3><p>A teljes gyártási folyamatot dokumentált minőségirányítási rendszer fogja össze — az anyagátvételtől a végmérésig. Minden megmunkált alkatrész nyomonkövethető, a kritikus jellemzők méréses jegyzőkönyvvel igazolhatók.</p>
-<div class="pills"><span class="pill">Anyagigazolás</span><span class="pill">Méréses jegyzőkönyv</span><span class="pill">Nyomonkövetés</span><span class="pill">SPC</span></div></div></div></div></section>
+<div><h3>Tanúsított folyamatok</h3><p>A teljes gyártási folyamatot dokumentált minőségirányítási rendszer fogja össze — az anyagátvételtől a végmérésig. Minden megmunkált alkatrész nyomonkövethető, a kritikus jellemzők méréses jegyzőkönyvvel igazolhatók.</p>
+<div class="pills"><span class="pill">Anyagigazolás</span><span class="pill">Méréses jegyzőkönyv</span><span class="pill">Nyomonkövetés</span><span class="pill">SPC</span></div></div></div>
+<div class="reveal" style="margin-top:26px"><div class="ey">// A tanúsítványunk</div>
+<div class="certrow">
+<a class="certbtn" href="images/cert/iso-9001-hu.jpg" target="_blank" rel="noopener" data-cert="images/cert/iso-9001-hu.jpg" data-cap="ISO 9001:2015 tanúsítvány — magyar · FERRCERT, FECR 3806/23"><span class="cb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span><span class="cb-t"><b>ISO 9001:2015 tanúsítvány</b><small>magyar · kattints a megtekintéshez</small></span><span class="cb-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></span></a>
+<a class="certbtn" href="images/cert/iso-9001-en.jpg" target="_blank" rel="noopener" data-cert="images/cert/iso-9001-en.jpg" data-cap="ISO 9001:2015 certificate — English · FERRCERT, FECR 3806/23"><span class="cb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span><span class="cb-t"><b>ISO 9001:2015 certificate</b><small>English · click to view</small></span><span class="cb-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></span></a>
+</div>
+<div class="certnote mono">FERRCERT · FECR 3806/23 · érvényes 2026. 12. 26-ig · hatókör: precíziós fémmegmunkálás, prototípus és kisszériás gyártás, összeszerelés.</div>
+</div></div></section>
 <section><div class="wrap"><div class="shead reveal"><div class="ey">// Kiszolgált iparágak</div><h2>Ahol a tűrés nem opció</h2>
 <p>Biztonságkritikus és certifikált környezetbe gyártunk — a minőségi elvárások a folyamat minden lépésébe be vannak építve.</p></div>
 <div class="igrid">{icards}</div></div></section>
@@ -97,7 +104,8 @@ def build_minoseg():
 <div class="mbody"><div class="tag">// 3D koordináta-mérőgép</div><h3>WENZEL LH 87</h3><div class="sub">Nagytérfogatú, CNC-vezérlésű mérőközpont</div>
 <div class="rule"></div><div class="specs">{wrows}</div><div class="feats">{wfeats}</div></div></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Rajz alapján visszaigazolt minőség</h2><p>Küldd el az alkatrész rajzát — visszajelzünk a megmunkálhatóságról, a mérési tervről és az árról.</p>
-<div class="row"><a href="kapcsolat.html" class="btn pri">Ajánlatkérés</a><a href="geppark.html" class="btn sec">A teljes géppark</a></div></div></div></section>'''
+<div class="row"><a href="kapcsolat.html" class="btn pri">Ajánlatkérés</a><a href="geppark.html" class="btn sec">A teljes géppark</a></div></div></div></section>
+<div class="lightbox" id="lightbox" aria-hidden="true"><div class="lb-backdrop"></div><button class="lb-close" type="button" aria-label="Bezárás">×</button><div class="lb-inner"><img class="lb-img" src="" alt="Tanúsítvány — teljes méret"><div class="lb-cap"></div></div></div>'''
     page_shell('minoseg','Minőség & mérőszoba — Workflow Tech Kft.','ISO 9001:2015 minőségirányítás és WENZEL LH 87 mérőszoba — méréses dokumentáció a vasút-, gépjármű- és repülőgépiparnak.',body)
 
 # ============================================================
@@ -213,7 +221,7 @@ def build_gyartas():
 #  RÓLUNK
 # ============================================================
 def build_rolunk():
-    stats=[('30+','év tapasztalat'),('27','gép'),('ISO','9001:2015'),('3','iparág')]
+    stats=[('35','év · 1991 óta'),('20','év CAM-tapasztalat'),('27','megmunkálógép'),('ISO','9001:2015')]
     sg=''.join(f'<div class="stat reveal"><div class="v">{H.escape(v)}</div><div class="l">{H.escape(l)}</div></div>' for v,l in stats)
     VALS=[('Precizitás','Mikronos tűrések, mérhető és dokumentált minőség — nem ígérjük, igazoljuk.',
      '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>'),
@@ -226,18 +234,33 @@ def build_rolunk():
      ('Saját készülékgyártás','A prototípusokhoz és a megrendelői alkatrészekhez a befogó- és mérőkészülékeket is mi készítjük.',
      '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/>')]
     vl=''.join(f'<div class="vrow reveal"><div class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{ico}</svg></div><div><h4>{H.escape(n)}</h4><p>{H.escape(d)}</p></div></div>' for n,d,ico in VALS)
+    MILES=[('1991','Az alapítás','Családi vállalkozásként, Szabó Bt. néven indul a szerszámkészítés.'),
+     ('2000','Első CNC','Az első CNC megmunkálóközpont beszerzése — megkezdődik a fordulás a gépi forgácsolás felé.'),
+     ('2005','Új üzemcsarnok','450 m²-es saját gyártócsarnokba költözés, bővülő kapacitással.'),
+     ('2014','Repülőgépipari belépés','LEADER-pályázatból három új szerszámgép; megkezdődik a repülőgépipari beszállítói munka.'),
+     ('2015','10 fős csapat','GINOP-beruházás, a szervezet 10 főre bővül.'),
+     ('2016–2017','EU-s gépberuházások','VEKOP és GINOP társfinanszírozású beruházások — modern, 5 tengelyes géppark.'),
+     ('2018','Kft. forma','A vállalkozás Szabó Szerszámkészítő Kft. formában működik tovább.'),
+     ('2023','Csúcstechnológia','Új DMG MORI eszterga- és megmunkálóközpontok — Ø500 × 1200 mm, 5 tengely, köszörűfunkcióval.'),
+     ('2026','Workflow Tech Kft.','A 35 éves gyártói tudás új fejezete: prototípus és kis/közepes széria gyártás, saját fejlesztésű Workflow Pro gyártásirányító rendszerrel.')]
+    tl=''.join(f'<div class="tl-row reveal{" now" if i==len(MILES)-1 else ""}"><div class="tl-yr">{H.escape(yr)}</div><h4>{H.escape(t)}</h4><p>{H.escape(d)}</p></div>' for i,(yr,t,d) in enumerate(MILES))
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Rólunk</div>
-<h1>Szerszámkészítésből precíziós gyártás és szoftver</h1>
-<p>A Workflow Tech Kft. a Szabó Szerszámkészítő Kft. átalakulásával jött létre: a szerszámkészítésben szerzett évtizedes tudást ma prototípusok, valamint kis- és közepes szériák precíziós gyártására fordítjuk — 20+ év CAM-tapasztalattal az egyedi megmunkálásban, saját fejlesztésű Workflow Pro rendszerrel.</p></div></header>
+<h1>35 év — szerszámkészítésből precíziós gyártás</h1>
+<p>1991 óta gyártunk egyedi, nagy pontosságú alkatrészeket. Mára a hangsúly a prototípusok, valamint a kis- és közepes szériák precíziós gyártásán van — <strong style="color:var(--t);font-weight:700">20 év CAM-tapasztalattal az egyedi, kis- és közepes széria megmunkálásban</strong>. Ebből a napi gyakorlatból nőtt ki a Workflow Tech Kft. és a saját fejlesztésű gyártásirányító rendszerünk, a Workflow Pro.</p></div></header>
 <section style="padding-top:24px"><div class="wrap"><div class="statgrid">{sg}</div></div></section>
-<section><div class="wrap"><div class="about"><div class="reveal"><div class="ey">// A cég</div>
-<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--t);margin-top:8px">Évtizedek tapasztalata, mai eszközökkel</h2>
-<p>Folyamatos géppark-fejlesztéssel és minőségirányítással építettük fel azt a képességet, amivel vasút-, gépjármű- és repülőgépipari beszállítóként is megfelelünk. Prototípusokat és kis- s közepes szériákat egyaránt gyártunk, a darabokhoz szükséges befogó- és mérőkészülékeket pedig házon belül tervezzük és készítjük. A saját üzemünk működtetéséből nőtt ki a Workflow Pro — a gyártóknak szánt vállalatirányítási rendszer, amely az ajánlatkéréstől a kiszállításig minden folyamatunkat összefogja.</p>
+<section><div class="wrap"><div class="about"><div class="reveal"><div class="ey">// A történet</div>
+<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--t);margin-top:8px">Hogyan lettünk Workflow Tech</h2>
+<p>Családi vállalkozásként, szerszámkészítéssel indultunk 1991-ben. Az évek alatt a hangsúly a nagy pontosságú, bonyolult alkatrészek gyors és megbízható legyártására tolódott — ma ebben vagyunk igazán jók, a prototípustól a kis- és közepes szériáig.</p>
+<p>Közben felépült egy modern, 5 tengelyes géppark, és kialakult egy gyártási kultúra, amely az ajánlattól a leszámlázásig mindent dokumentál. A prototípusokhoz és a megrendelői alkatrészekhez a befogó- és mérőkészülékeket is házon belül tervezzük és gyártjuk.</p>
+<p>A 20 év CAM-tapasztalattal felépített tudást formáltuk szoftverré: így született a <strong style="color:var(--t)">Workflow Pro</strong>, a gyártóknak szánt vállalatirányítási rendszer. A cég neve <strong style="color:var(--t)">Workflow Tech Kft.</strong> lett — mert már nemcsak alkatrészt, hanem folyamatot is szállítunk.</p>
 <div class="row" style="margin-top:22px"><a href="geppark.html" class="btn pri">Géppark</a><a href="workflow-pro.html" class="btn sec">Workflow Pro</a></div></div>
 <div class="vlist reveal">{vl}</div></div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="shead reveal"><div class="ey">// Mérföldkövek</div><h2>1991 → ma</h2>
+<p>A szerszámkészítéstől a saját fejlesztésű gyártásirányító rendszerig — a fontosabb állomások.</p></div>
+<div class="tl">{tl}</div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Dolgozzunk együtt</h2><p>Akár alkatrész, akár szoftver — keress minket.</p>
 <div class="row"><a href="kapcsolat.html" class="btn pri">Kapcsolat</a></div></div></div></section>'''
-    page_shell('rolunk','Rólunk — Workflow Tech Kft.','Szigetbecsei precíziós fémmegmunkáló üzem (korábban Szabó Szerszámkészítő Kft.) saját Workflow Pro szoftverrel.',body)
+    page_shell('rolunk','Rólunk — Workflow Tech Kft.','35 év: 1991 óta precíziós alkatrészgyártás (korábban Szabó Szerszámkészítő Kft.) — prototípus és kis/közepes széria, 20 év CAM-tapasztalat, saját Workflow Pro rendszerrel.',body)
 
 # ============================================================
 #  KAPCSOLAT

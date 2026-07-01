@@ -41,4 +41,30 @@
     es.forEach(function (en) { if (en.isIntersecting) en.target.classList.add('in'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // tanúsítvány lightbox / modál (Minőség oldal)
+  var lb = document.getElementById('lightbox');
+  if (lb) {
+    var lbImg = lb.querySelector('.lb-img'), lbCap = lb.querySelector('.lb-cap');
+    function openLb(src, cap) {
+      lbImg.src = src; if (lbCap) lbCap.textContent = cap || '';
+      lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = ''; document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-cert]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        openLb(b.getAttribute('data-cert'), b.getAttribute('data-cap'));
+      });
+    });
+    lb.querySelector('.lb-close').addEventListener('click', closeLb);
+    lb.querySelector('.lb-backdrop').addEventListener('click', closeLb);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    });
+  }
 })();
