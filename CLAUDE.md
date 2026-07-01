@@ -88,15 +88,15 @@ az adott `.wm` elemet cseréld `<img class="logoimg" src="images/brand/xxx.svg" 
 
 ## Deploy (Cloudflare)
 
-A webkiszolgálás **dotroll cPanelről Cloudflare-re költözik** (2026-06-27-től). Az oldal statikus,
-ezért **Cloudflare Workers (assets-only)** szolgálja ki a `build/` mappát:
+A webkiszolgálás **Cloudflare Workers (assets-only)** — a `build/` mappát szolgálja ki:
 
-- A `wrangler.jsonc` a repó gyökerében a `build/`-re mutat (`assets.directory`).
-- A Cloudflare Workers Build a GitHub `main`-hez van kötve; **minden main-push után `npx wrangler deploy`**
-  fut, és magától élesít — nincs FTP/SSH/cache-purge. (Build command: None, mert a `build/` be van commitolva.)
+- A `wrangler.jsonc` a repó gyökerében a `build/`-re mutat (`assets.directory`); az `account_id` beégetve.
+- **Auto-deploy GitHub Actions-szel:** `.github/workflows/deploy.yml` minden `main`-push után (és kézzel
+  `gh workflow run deploy.yml`) lefuttatja a `cloudflare/wrangler-action@v3`-at (`wranglerVersion: "4"`,
+  `command: deploy`). Szükséges GitHub-secret: **`CLOUDFLARE_API_TOKEN`**. Deploy = `git push origin main`
+  → ~30 mp múlva él (ellenőrzés: `curl https://workflowtech.hu/workflow-pro-demo` → 200).
 - A `build/` előállítása változatlan: `python3 build.py` → commit → push `main`.
 - Domain a dotroll regisztrátornál marad; **email a Google Workspace-en** (MX `smtp.google.com`) — a web-DNS
   átállításakor az MX/DKIM/SPF/DMARC rekordokhoz NEM nyúlunk.
 
 A `regi-2016/` a régi cPanel-oldal archív helye — azt nem ez a projekt kezeli.
-(A korábbi cPanel/FTPS deploy megszűnt; a `.cpanel.yml` átmenetileg még a repóban van.)
