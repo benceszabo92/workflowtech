@@ -129,7 +129,7 @@ def build_referenciak():
     REFCLIENTS=[
      ("Siemens Zrt.","siemens.svg","https://www.siemens.com/hu-hu/"),
      ("Siemens Energy Kft.","siemens-energy.svg","https://www.siemens-energy.com/global/en/home.html"),
-     ("Knorr-Bremse Hungária Kft.","knorr-bremse.svg","https://rail.knorr-bremse.com/"),
+     ("Knorr-Bremse Hungária Kft.","knorr-bremse.png","https://rail.knorr-bremse.com/"),
      ("Rolls-Royce","rolls-royce.png","https://www.rolls-royce.com/country-sites/hungary-hu.aspx"),
      ("KUKA Hungária Kft.","kuka.svg","https://www.kuka.com/"),
      ("AVL Hungary Kft.","avl.png","https://www.avl.com/"),
@@ -144,9 +144,8 @@ def build_referenciak():
      ("SMB Industries Kft.","smb.png","https://smb.at/"),
     ]
     def reftile(name,fn,url):
-        return (f'<a class="ref" href="{H.escape(url)}" target="_blank" rel="noopener" title="{H.escape(name)}">'
-                f'<span class="ref-logo"><img src="images/brand/logos/{fn}" alt="{H.escape(name)}" loading="lazy"></span>'
-                f'<span class="ref-name">{H.escape(name)}</span></a>')
+        return (f'<a class="ref" href="{H.escape(url)}" target="_blank" rel="noopener" title="{H.escape(name)}" aria-label="{H.escape(name)}">'
+                f'<span class="ref-logo"><img src="images/brand/logos/{fn}" alt="{H.escape(name)}" loading="lazy"></span></a>')
     reftiles=''.join(reftile(*c) for c in REFCLIENTS)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Referenciák</div>
 <h1>Pályázatok és fejlesztések</h1>
