@@ -123,7 +123,12 @@ def grant_html(g,imgs,rev):
 <div class="gy">{g['year']} · {H.escape(g['title'])}</div><h3>{H.escape(g['title'])}</h3><p>{H.escape(g['text'])}</p></div></div>'''
 
 def build_referenciak():
-    cards=''.join(grant_html(g,GRANT_IMG[i],i%2==1) for i,g in enumerate(grants))
+    def _cover(g,imgs):
+        # 2017 GINOP: a 3. kép legyen a főképernyő (borítókép)
+        if g['year']=='2017' and g['prog']=='GINOP' and len(imgs)>=3:
+            return [imgs[2]]+imgs[:2]+imgs[3:]
+        return imgs
+    cards=''.join(grant_html(g,_cover(g,GRANT_IMG[i]),i%2==1) for i,g in enumerate(grants))
     # Ügyfelek / partnerek — valódi logók fehér csempéken, névvel, auto-scroll sáv.
     # Új partner: rakd a logót az images/brand/logos/-ba és vedd fel ide (név, fájl, weboldal).
     REFCLIENTS=[
@@ -148,13 +153,12 @@ def build_referenciak():
                 f'<span class="ref-logo"><img src="images/brand/logos/{fn}" alt="{H.escape(name)}" loading="lazy"></span></a>')
     reftiles=''.join(reftile(*c) for c in REFCLIENTS)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Referenciák</div>
-<h1>Pályázatok és fejlesztések</h1>
-<p>Az elmúlt évek európai uniós és hazai pályázatai a gépparkunkat és a mérési képességeinket fejlesztették — közvetlenül a mindennapi gyártásban hasznosulnak.</p></div></header>
-<section><div class="wrap"><div class="refwall reveal">
-<div class="ch"><span class="ey">// Ügyfeleink</span><h2>Akiknek gyártunk</h2><p>Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repüléstechnikáig.</p></div>
+<h1 class="lead">Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repüléstechnikáig.</h1></div></header>
+<section style="padding-top:6px"><div class="wrap"><div class="refwall reveal">
 <div class="reflogos">{reftiles}</div>
 </div></div></section>
-<section style="padding-top:24px"><div class="wrap">{cards}</div></section>
+<section><div class="wrap"><div class="shead reveal"><div class="ey">// Pályázatok</div><h2>Pályázatok és fejlesztések</h2>
+<p>Az elmúlt évek európai uniós és hazai pályázatai a gépparkunkat és a mérési képességeinket fejlesztették — közvetlenül a mindennapi gyártásban hasznosulnak.</p></div>{cards}</div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><h2>Precíziós gyártás, mérhető minőséggel</h2><p>A fejlesztéseink eredménye a mindennapi gyártásban is ott van.</p>
 <div class="row"><a href="geppark.html" class="btn pri">A teljes géppark</a><a href="minoseg.html" class="btn sec">Minőség &amp; mérőszoba</a></div></div></div></section>'''
     page_shell('referenciak','Referenciák & pályázatok — Workflow Tech Kft.','VEKOP, GINOP, LEADER és Pest megyei pályázataink, valamint partnereink.',body)
