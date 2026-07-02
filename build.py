@@ -153,7 +153,7 @@ def build_referenciak():
                 f'<span class="ref-logo"><img src="images/brand/logos/{fn}" alt="{H.escape(name)}" loading="lazy"></span></a>')
     reftiles=''.join(reftile(*c) for c in REFCLIENTS)
     body=f'''<header class="hero"><div class="wrap"><div class="ey">// Referenciák</div>
-<h1 class="lead">Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repüléstechnikáig.</h1></div></header>
+<h1 class="lead">Precíziós alkatrészek és gyártóeszközök — hazai és nemzetközi ipari partnereknek, a vasúttól a repülőgépiparig.</h1></div></header>
 <section style="padding-top:6px"><div class="wrap"><div class="refwall reveal">
 <div class="reflogos">{reftiles}</div>
 </div></div></section>
